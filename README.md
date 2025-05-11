@@ -1,50 +1,42 @@
-# Simple FastAPI Application
+# ⚠️ Warning
+This is part of my Python learning path. The code and implementations here are for educational purposes.
 
-A basic FastAPI application with CRUD (in memory) operations for items.
+## Project Description
+This is a simple FastAPI application that demonstrates basic CRUD operations with a REST API.
+
+## Features
+- FastAPI framework
+- Pydantic models for data validation
+- Basic CRUD operations
+- Type hints and documentation
 
 ## Setup
-
-1. Install dependencies:
+1. Create a virtual environment:
 ```bash
-poetry install
+python -m venv .venv
 ```
 
-2. Run the application:
+2. Activate the virtual environment:
 ```bash
-poetry run uvicorn main:app --reload
+source .venv/bin/activate  # On Unix/macOS
+# or
+.venv\Scripts\activate  # On Windows
 ```
 
-The API will be available at `http://localhost:8000`
+3. Install dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+4. Run the server:
+```bash
+uvicorn main:app --reload
+```
+
+The API will be available at http://127.0.0.1:8000
+API documentation will be available at http://127.0.0.1:8000/docs
 
 ## API Documentation
 
 - Swagger UI: `http://localhost:8000/docs`
-- ReDoc: `http://localhost:8000/redoc`
-
-## Available Endpoints
-
-- `GET /`: Welcome message
-- `GET /items`: Get all items
-- `GET /items/{item_id}`: Get a specific item
-- `POST /items`: Create a new item
-- `PUT /items/{item_id}`: Update an item
-- `DELETE /items/{item_id}`: Delete an item
-
-## Example Usage
-
-```bash
-# Create an item
-curl -X POST "http://localhost:8000/items" -H "Content-Type: application/json" -d '{"name": "Test Item", "description": "This is a test item"}'
-
-# Get all items
-curl "http://localhost:8000/items"
-
-# Get a specific item
-curl "http://localhost:8000/items/0"
-
-# Update an item
-curl -X PUT "http://localhost:8000/items/0" -H "Content-Type: application/json" -d '{"name": "Updated Item", "description": "This is an updated item"}'
-
-# Delete an item
-curl -X DELETE "http://localhost:8000/items/0"
-``` 
+- ReDoc: `
