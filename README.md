@@ -1,33 +1,50 @@
-# Python API
+# Simple FastAPI Application
 
-This repository contains a Python-based API project.
+A basic FastAPI application with CRUD (in memory) operations for items.
 
 ## Setup
 
-1. Create a virtual environment:
+1. Install dependencies:
 ```bash
-python -m venv venv
+poetry install
 ```
 
-2. Activate the virtual environment:
-- Windows:
+2. Run the application:
 ```bash
-.\venv\Scripts\activate
-```
-- Unix/MacOS:
-```bash
-source venv/bin/activate
+poetry run uvicorn main:app --reload
 ```
 
-3. Install dependencies:
+The API will be available at `http://localhost:8000`
+
+## API Documentation
+
+- Swagger UI: `http://localhost:8000/docs`
+- ReDoc: `http://localhost:8000/redoc`
+
+## Available Endpoints
+
+- `GET /`: Welcome message
+- `GET /items`: Get all items
+- `GET /items/{item_id}`: Get a specific item
+- `POST /items`: Create a new item
+- `PUT /items/{item_id}`: Update an item
+- `DELETE /items/{item_id}`: Delete an item
+
+## Example Usage
+
 ```bash
-pip install -r requirements.txt
-```
+# Create an item
+curl -X POST "http://localhost:8000/items" -H "Content-Type: application/json" -d '{"name": "Test Item", "description": "This is a test item"}'
 
-## Development
+# Get all items
+curl "http://localhost:8000/items"
 
-[Add development instructions here]
+# Get a specific item
+curl "http://localhost:8000/items/0"
 
-## License
+# Update an item
+curl -X PUT "http://localhost:8000/items/0" -H "Content-Type: application/json" -d '{"name": "Updated Item", "description": "This is an updated item"}'
 
-[Add license 
+# Delete an item
+curl -X DELETE "http://localhost:8000/items/0"
+``` 

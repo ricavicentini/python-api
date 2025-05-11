@@ -1,0 +1,11 @@
+fastapi==0.109.2
+uvicorn==0.27.1
+pydantic==2.6.1
+sqlalchemy==2.0.27
+alembic==1.13.1
+fastapi-users==12.1.2
+python-jose[cryptography]==3.3.0
+fastapi-mail==1.4.1
+fastapi-cache2==0.2.1
+fastapi-limiter==0.1.5
+fastapi-pagination==0.12.12 

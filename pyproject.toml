@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "python-api"
+version = "0.1.0"
+description = "A simple FastAPI application"
+authors = ["Ricardo Vicentini <ric_vicentini@hotmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = "^0.109.0"
+uvicorn = "^0.27.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api" 
