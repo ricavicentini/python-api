@@ -2,7 +2,7 @@ from fastapi import FastAPI, HTTPException
 from typing import Optional
 from pydantic import BaseModel
 from uuid import UUID, uuid4
-from models.item import Item
+from src.models.item import Item
 app = FastAPI(
     title="Simple API",
     description="A simple API with basic routes",
@@ -27,7 +27,7 @@ async def get_items():
     return items
 
 @app.get("/items/{item_id}", response_model=Item)
-async def read_item(item_id: int):
+async def read_item(item_id: UUID):
     """
     Get a specific item by ID.
     """
@@ -35,14 +35,14 @@ async def read_item(item_id: int):
         raise HTTPException(status_code=404, detail="Item not found")
     return items[item_id]
 
-@app.post("/items", response_model=Item)
+@app.post("/items", response_model=UUID)
 async def create_item(item: Item):
     """
     Create a new item.
     """
     item_id = uuid4()
     items[item_id] = item
-    return item
+    return item_id
 
 @app.put("/items/{item_id}", response_model=Item)
 async def update_item(item_id: UUID, item: Item):

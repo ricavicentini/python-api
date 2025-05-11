@@ -3,7 +3,7 @@ from typing import Optional
 
 class Item(BaseModel):
     name: str
-    desciption: str
+    description: Optional[str] = None
     price: float
     on_offer: bool = False
    
